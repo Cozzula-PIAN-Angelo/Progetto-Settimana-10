@@ -1,36 +1,45 @@
-function formattaOra(timestamp) {
-  return new Date(timestamp * 1000).toLocaleTimeString("it-IT", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-}
+import AnelloDato from "./grafici/AnelloDato.jsx";
+import BussolaVento from "./grafici/BussolaVento.jsx";
+import BarraTemperatura from "./grafici/BarraTemperatura.jsx";
+import ArcoSole from "./grafici/ArcoSole.jsx";
 
-function CartaMeteo({ dati }) {
+function CartaMeteo({ dati, nome, regione }) {
   return (
-    <div>
+    <div className="carta-meteo">
       <h1>
-        Meteo di {dati.name}, {dati.sys.country}
+        Meteo di {nome || dati.name}, {dati.sys.country}
       </h1>
+      {regione && <p className="regione">{regione}</p>}
       <img
         src={`https://openweathermap.org/img/wn/${dati.weather[0].icon}@2x.png`}
         alt={dati.weather[0].description}
       />
-      <p>{Math.round(dati.main.temp)}°C</p>
+      <p className="temp">{Math.round(dati.main.temp)}°C</p>
       <p>Percepita: {Math.round(dati.main.feels_like)}°C</p>
-      <p>
-        Min {Math.round(dati.main.temp_min)}°C / Max{" "}
-        {Math.round(dati.main.temp_max)}°C
-      </p>
-      <p>{dati.weather[0].description}</p>
+      <BarraTemperatura
+        temp={dati.main.temp}
+        min={dati.main.temp_min}
+        max={dati.main.temp_max}
+      />
+      <p className="descrizione">{dati.weather[0].description}</p>
+      <div className="griglia-grafici">
+        <AnelloDato
+          etichetta="Umidità"
+          icona="💧"
+          valore={dati.main.humidity}
+        />
+        <AnelloDato
+          etichetta="Nuvolosità"
+          icona="☁️"
+          valore={dati.clouds.all}
+        />
+        <BussolaVento gradi={dati.wind.deg} velocita={dati.wind.speed} />
+      </div>
       <ul>
-        <li>💧 Umidità: {dati.main.humidity}%</li>
-        <li>💨 Vento: {dati.wind.speed} m/s</li>
         <li>🌡️ Pressione: {dati.main.pressure} hPa</li>
-        <li>☁️ Nuvolosità: {dati.clouds.all}%</li>
         <li>👁️ Visibilità: {dati.visibility / 1000} km</li>
       </ul>
-      <p>🌅 Alba: {formattaOra(dati.sys.sunrise)}</p>
-      <p>🌇 Tramonto: {formattaOra(dati.sys.sunset)}</p>
+      <ArcoSole alba={dati.sys.sunrise} tramonto={dati.sys.sunset} />
       {dati.rain && <p>🌧️ Pioggia: {dati.rain["1h"]} mm nell'ultima ora</p>}
     </div>
   );

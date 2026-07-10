@@ -1,0 +1,555 @@
+/* ===== Tasto per tornare alla home ===== */
+
+.torna-home {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 8px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--bianco);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    transform 0.15s;
+}
+
+.torna-home:hover {
+  color: var(--blu-scuro);
+  background: var(--giallo);
+  border-color: var(--giallo);
+  transform: scale(1.05);
+}
+
+/* ===== Titoli delle pagine (poggiano sul fondo blu) ===== */
+
+h1,
+h2 {
+  color: var(--bianco);
+  letter-spacing: -0.5px;
+}
+
+/* ===== SearchBar ===== */
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 24px 0;
+}
+
+.search-box {
+  position: relative;
+  width: min(320px, 65%);
+}
+
+.search-bar input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 18px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 999px;
+  outline: 3px solid transparent;
+}
+
+.search-bar input:focus {
+  outline-color: var(--giallo);
+}
+
+.search-bar button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--blu-scuro);
+  background: var(--giallo);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.search-bar button:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Suggerimenti (autocomplete) ===== */
+
+.suggerimenti {
+  list-style: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 6px;
+  background: var(--bianco);
+  border-radius: 16px;
+  box-shadow: var(--ombra);
+  max-height: 260px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 10;
+}
+
+.suggerimenti button {
+  width: 100%;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  text-align: left;
+  color: var(--blu-scuro);
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.suggerimenti button:hover {
+  background: var(--blu-ghiaccio);
+}
+
+/* ===== ListaCitta ===== */
+
+.lista-citta {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.lista-citta a {
+  display: block;
+  padding: 8px 18px;
+  color: var(--bianco);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.lista-citta a:hover {
+  color: var(--blu-scuro);
+  background: var(--giallo);
+  border-color: var(--giallo);
+}
+
+/* ===== CartaMeteo ===== */
+
+.carta-meteo {
+  max-width: 480px;
+  margin: 24px auto;
+  padding: 28px 24px;
+  background: var(--bianco);
+  border-radius: 20px;
+  box-shadow: var(--ombra);
+}
+
+.carta-meteo h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: var(--blu-scuro);
+}
+
+.carta-meteo p {
+  margin: 4px 0;
+}
+
+.carta-meteo .regione {
+  margin: 2px 0 0;
+  font-size: 0.95rem;
+  color: var(--testo-secondario);
+}
+
+.carta-meteo .temp {
+  margin: 0;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--blu);
+  line-height: 1.1;
+}
+
+.carta-meteo .descrizione {
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.carta-meteo ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.carta-meteo li {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  color: var(--blu-scuro);
+  background: var(--blu-ghiaccio);
+  border-radius: 8px;
+}
+
+/* ===== Griglia dei preferiti in home ===== */
+
+.griglia-preferiti {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.carta-mini {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 200px;
+  padding: 24px 20px;
+  background: var(--bianco);
+  border-radius: 16px;
+  box-shadow: var(--ombra);
+  text-decoration: none;
+  color: var(--testo);
+  transition: transform 0.15s;
+}
+
+.carta-mini:hover {
+  transform: translateY(-4px);
+}
+
+.carta-mini strong {
+  color: var(--blu-scuro);
+  font-size: 1.25rem;
+}
+
+.carta-mini img {
+  width: 80px;
+  height: 80px;
+}
+
+.carta-mini .mini-temp {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--blu);
+}
+
+.carta-mini .mini-descrizione {
+  font-size: 0.95rem;
+  text-transform: capitalize;
+}
+
+/* ===== Grafici nelle card ===== */
+
+/* ingresso animato delle card */
+.carta-meteo,
+.carta-mini {
+  animation: appari-su 0.5s ease-out backwards;
+}
+
+.griglia-preferiti .carta-mini:nth-child(2) {
+  animation-delay: 0.08s;
+}
+.griglia-preferiti .carta-mini:nth-child(3) {
+  animation-delay: 0.16s;
+}
+.griglia-preferiti .carta-mini:nth-child(4) {
+  animation-delay: 0.24s;
+}
+.griglia-preferiti .carta-mini:nth-child(5) {
+  animation-delay: 0.32s;
+}
+
+@keyframes appari-su {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+/* riga di tile con anelli e bussola */
+.griglia-grafici {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 18px 0 8px;
+}
+
+.grafico-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 108px;
+  animation: appari-su 0.5s ease-out backwards;
+}
+
+.griglia-grafici .grafico-tile:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.griglia-grafici .grafico-tile:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.grafico-tile svg {
+  width: 84px;
+  height: 84px;
+}
+
+.grafico-etichetta {
+  font-size: 0.8rem;
+  color: var(--testo-secondario);
+}
+
+/* anello (umidità, nuvolosità) */
+.traccia-anello {
+  fill: none;
+  stroke: var(--blu-chiaro);
+  stroke-width: 8;
+}
+
+.riempimento-anello {
+  fill: none;
+  stroke: var(--blu);
+  stroke-width: 8;
+  stroke-linecap: round;
+  animation: riempi-traccia 1s ease-out;
+}
+
+@keyframes riempi-traccia {
+  from {
+    stroke-dashoffset: 100;
+  }
+}
+
+.valore-grafico {
+  font-size: 15px;
+  font-weight: 700;
+  fill: var(--testo);
+  text-anchor: middle;
+}
+
+/* bussola del vento */
+.punto-cardinale {
+  font-size: 8px;
+  font-weight: 600;
+  fill: var(--testo-secondario);
+  text-anchor: middle;
+}
+
+.freccia-vento {
+  fill: var(--blu);
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation: gira-freccia 1s ease-out;
+}
+
+@keyframes gira-freccia {
+  from {
+    transform: rotate(0deg);
+  }
+}
+
+/* barra temperatura min-max */
+.barra-temperatura {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 280px;
+  margin: 12px auto 4px;
+}
+
+.estremo-barra {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--testo-secondario);
+}
+
+.traccia-barra {
+  position: relative;
+  flex: 1;
+  height: 8px;
+  background: var(--blu-chiaro);
+  border-radius: 999px;
+}
+
+.riempimento-barra {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, var(--blu-cielo), var(--blu));
+  border-radius: 999px;
+  transform-origin: left;
+  animation: cresci-barra 1s ease-out;
+}
+
+@keyframes cresci-barra {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.cursore-barra {
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+  background: var(--blu);
+  border: 2px solid var(--bianco);
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(30, 58, 138, 0.4);
+  animation: spunta-cursore 0.4s ease-out 0.8s backwards;
+}
+
+@keyframes spunta-cursore {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+/* arco alba-tramonto */
+.arco-sole {
+  max-width: 280px;
+  margin: 18px auto 0;
+}
+
+.arco-sole svg {
+  width: 100%;
+  display: block;
+}
+
+.traccia-sole {
+  fill: none;
+  stroke: var(--blu-chiaro);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.riempimento-sole {
+  fill: none;
+  stroke: var(--ambra);
+  stroke-width: 4;
+  stroke-linecap: round;
+  animation: riempi-traccia 1.2s ease-out;
+}
+
+.sole {
+  fill: var(--ambra);
+  stroke: var(--bianco);
+  stroke-width: 2;
+  animation: spunta-sole 0.5s ease-out 1s backwards;
+}
+
+@keyframes spunta-sole {
+  from {
+    opacity: 0;
+  }
+}
+
+.orari-sole {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--testo-secondario);
+  margin-top: 4px;
+}
+
+/* mini-barra umidità nelle card della home */
+.mini-barra {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--testo-secondario);
+}
+
+.traccia-mini {
+  flex: 1;
+  height: 8px;
+  background: var(--blu-chiaro);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.riempimento-mini {
+  height: 100%;
+  background: var(--blu);
+  border-radius: 999px;
+  transform-origin: left;
+  animation: cresci-barra 1s ease-out;
+}
+
+/* rispetto della preferenza per il movimento ridotto */
+@media (prefers-reduced-motion: reduce) {
+  .carta-meteo,
+  .carta-mini,
+  .grafico-tile,
+  .riempimento-anello,
+  .freccia-vento,
+  .riempimento-barra,
+  .cursore-barra,
+  .riempimento-sole,
+  .sole,
+  .riempimento-mini {
+    animation: none;
+  }
+}
+
+/* ===== Bottone preferiti ===== */
+
+.btn-preferito {
+  margin-top: 4px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--blu-scuro);
+  background: var(--giallo);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.btn-preferito:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Loader ed ErrorMessage ===== */
+
+.loader,
+.error-message {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.loader {
+  color: var(--blu-scuro);
+  background: var(--bianco);
+}
+
+.error-message {
+  color: var(--blu-scuro);
+  background: var(--giallo);
+}
