@@ -49,6 +49,13 @@ h2 {
   margin: -16px 0;
 }
 
+.btn-tema {
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: default;
+}
+
 /* ===== SearchBar ===== */
 
 .search-bar {
@@ -381,6 +388,12 @@ h2 {
 }
 
 /* bussola del vento */
+.traccia-bussola {
+  fill: none;
+  stroke: var(--blu-chiaro);
+  stroke-width: 6;
+}
+
 .punto-cardinale {
   font-size: 8px;
   font-weight: 600;
@@ -401,63 +414,33 @@ h2 {
   }
 }
 
-/* barra temperatura min-max */
-.barra-temperatura {
+/* minima e massima del giorno */
+.min-max {
   display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 8px 0 2px;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.min-max span {
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  max-width: 280px;
-  margin: 12px auto 4px;
+  gap: 2px;
 }
 
-.estremo-barra {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--testo-secondario);
+.min-max .minima {
+  color: var(--blu);
 }
 
-.traccia-barra {
-  position: relative;
-  flex: 1;
-  height: 8px;
-  background: var(--blu-chiaro);
-  border-radius: 999px;
-}
-
-.riempimento-barra {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, var(--blu-cielo), var(--blu));
-  border-radius: 999px;
-  transform-origin: left;
-  animation: cresci-barra 1s ease-out;
+.min-max .massima {
+  color: var(--ambra);
 }
 
 @keyframes cresci-barra {
   from {
     transform: scaleX(0);
-  }
-}
-
-.cursore-barra {
-  position: absolute;
-  top: 50%;
-  width: 14px;
-  height: 14px;
-  transform: translate(-50%, -50%);
-  background: var(--blu);
-  border: 2px solid var(--bianco);
-  border-radius: 50%;
-  box-shadow: 0 1px 4px rgba(30, 58, 138, 0.4);
-  animation: spunta-cursore 0.4s ease-out 0.8s backwards;
-}
-
-@keyframes spunta-cursore {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0);
   }
 }
 
@@ -489,8 +472,6 @@ h2 {
 
 .sole {
   fill: var(--ambra);
-  stroke: var(--bianco);
-  stroke-width: 2;
   animation: spunta-sole 0.5s ease-out 1s backwards;
 }
 
@@ -725,8 +706,6 @@ h2 {
   .grafico-tile,
   .riempimento-anello,
   .freccia-vento,
-  .riempimento-barra,
-  .cursore-barra,
   .riempimento-sole,
   .sole,
   .riempimento-mini,

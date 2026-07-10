@@ -1,7 +1,14 @@
-import { Droplets, Cloud, Gauge, Eye, CloudRain } from "lucide-react";
+import {
+  Droplets,
+  Cloud,
+  Gauge,
+  Eye,
+  CloudRain,
+  ArrowDown,
+  ArrowUp,
+} from "lucide-react";
 import AnelloDato from "./grafici/AnelloDato.jsx";
 import BussolaVento from "./grafici/BussolaVento.jsx";
-import BarraTemperatura from "./grafici/BarraTemperatura.jsx";
 import ArcoSole from "./grafici/ArcoSole.jsx";
 import { urlIconaMeteo } from "../assets/iconeMeteo.js";
 
@@ -19,11 +26,14 @@ function CartaMeteo({ dati, nome, regione }) {
       />
       <p className="temp">{Math.round(dati.main.temp)}°C</p>
       <p>Percepita: {Math.round(dati.main.feels_like)}°C</p>
-      <BarraTemperatura
-        temp={dati.main.temp}
-        min={dati.main.temp_min}
-        max={dati.main.temp_max}
-      />
+      <p className="min-max">
+        <span className="minima">
+          <ArrowDown size={17} /> {Math.round(dati.main.temp_min)}°
+        </span>
+        <span className="massima">
+          <ArrowUp size={17} /> {Math.round(dati.main.temp_max)}°
+        </span>
+      </p>
       <p className="descrizione">{dati.weather[0].description}</p>
       <div className="griglia-grafici">
         <AnelloDato

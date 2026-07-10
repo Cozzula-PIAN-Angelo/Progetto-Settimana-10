@@ -34,7 +34,7 @@ function ArcoSole({ alba, tramonto }) {
           strokeDasharray="100"
           strokeDashoffset={100 - progresso * 100}
         />
-        <circle className="sole" cx={soleX} cy={soleY} r="5" />
+        <circle className="sole" cx={soleX} cy={soleY} r="3.5" />
       </svg>
       <div className="orari-sole">
         <span>

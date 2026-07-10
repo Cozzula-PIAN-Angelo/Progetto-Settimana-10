@@ -4,17 +4,29 @@ import ListaCitta from "../components/ListaCitta.jsx";
 import CartaMini from "../components/CartaMini.jsx";
 import { usePreferiti } from "../hooks/usePreferiti.js";
 import { urlIconaMeteo } from "../assets/iconeMeteo.js";
+import { useTema } from "../hooks/useTema.js";
 
 function HomeMeteo() {
   const navigate = useNavigate();
   const cittaRapide = ["Roma", "Milano", "Napoli", "Londra", "Tokyo"];
   const { preferiti } = usePreferiti();
+  const { temporale, setTemporale } = useTema();
 
   return (
     <div>
       <h1 className="titolo-home">
         Che tempo fa?
-        <img className="sole-titolo" src={urlIconaMeteo("01d")} alt="" />
+        <button
+          className="btn-tema"
+          onClick={() => setTemporale(!temporale)}
+          aria-label="Attiva o disattiva la modalità temporale"
+        >
+          <img
+            className="sole-titolo"
+            src={urlIconaMeteo(temporale ? "11d" : "01d")}
+            alt=""
+          />
+        </button>
       </h1>
       <SearchBar
         onCerca={(citta, coordinate) =>

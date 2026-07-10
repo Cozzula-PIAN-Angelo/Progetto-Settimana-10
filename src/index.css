@@ -22,7 +22,12 @@ body {
   margin: 0;
   min-height: 100svh;
   /* il cielo: sfumatura dal blu profondo al celeste */
-  background: linear-gradient(160deg, var(--blu-scuro), var(--blu) 55%, var(--blu-cielo));
+  background: linear-gradient(
+    160deg,
+    var(--blu-scuro),
+    var(--blu) 55%,
+    var(--blu-cielo)
+  );
   background-attachment: fixed;
   color: var(--testo);
 }
@@ -32,4 +37,67 @@ body {
   margin: 0 auto;
   padding: 32px 16px;
   text-align: center;
+}
+
+body.tema-temporale {
+  /* il cielo in tempesta */
+  background: linear-gradient(160deg, #12121c, #23233a 55%, #3a3a5a);
+
+  /* ridefinendo le variabili, tutta l'app si adatta a cascata */
+  --bianco: #232336;
+  --blu-ghiaccio: #2e2e46;
+  --blu-chiaro: #3d3d5e;
+  --blu-scuro: #c7d2fe;
+  --blu: #60a5fa;
+  --ambra: #eab308;
+  --testo: #e5e7eb;
+  --testo-secondario: #9ca3af;
+  --ombra: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* i bottoni gialli restano gialli: il testo deve restare scuro */
+body.tema-temporale .search-bar button,
+body.tema-temporale .btn-preferito,
+body.tema-temporale .btn-scommetti {
+  color: #1e3a8a;
+}
+
+/* le scritte che poggiano sul cielo scuro tornano bianche
+   (--bianco nel tema temporale è diventato il colore delle card) */
+body.tema-temporale h1,
+body.tema-temporale h2,
+body.tema-temporale .torna-home,
+body.tema-temporale .lista-citta a {
+  color: #ffffff;
+}
+
+/* ma il titolo dentro la carta meteo resta sul suo colore chiaro */
+body.tema-temporale .carta-meteo h1 {
+  color: var(--blu-scuro);
+}
+
+body.tema-temporale::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: #dbe6ff;
+  opacity: 0;
+  animation: lampo 15s infinite;
+}
+
+@keyframes lampo {
+  0%,
+  86%,
+  90%,
+  100% {
+    opacity: 0;
+  }
+  87%,
+  89% {
+    opacity: 0.12;
+  }
+  88% {
+    opacity: 0.35;
+  }
 }
