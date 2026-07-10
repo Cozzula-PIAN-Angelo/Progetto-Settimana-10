@@ -21,13 +21,24 @@
 body {
   margin: 0;
   min-height: 100svh;
-  /* il cielo: sfumatura dal blu profondo al celeste */
-  background: linear-gradient(
-    160deg,
-    var(--blu-scuro),
-    var(--blu) 55%,
-    var(--blu-cielo)
-  );
+  /* una bella giornata di sole, a strati:
+     1. il disco del sole col suo bagliore caldo, in alto a destra
+     2. la foschia luminosa all'orizzonte, in basso
+     3. il cielo: azzurro profondo in alto, sempre più tenue verso terra */
+  background:
+    radial-gradient(
+      circle at 82% 10%,
+      #fffdf4 0,
+      #ffef9e 45px,
+      rgba(255, 230, 140, 0.4) 110px,
+      rgba(255, 230, 140, 0) 260px
+    ),
+    linear-gradient(
+      to top,
+      rgba(224, 242, 254, 0.55) 0%,
+      rgba(224, 242, 254, 0) 35%
+    ),
+    linear-gradient(175deg, #1e40af 0%, #2563eb 30%, #4f96f0 65%, #9ccbf9 100%);
   background-attachment: fixed;
   color: var(--testo);
 }
@@ -40,8 +51,17 @@ body {
 }
 
 body.tema-temporale {
-  /* il cielo in tempesta */
-  background: linear-gradient(160deg, #12121c, #23233a 55%, #3a3a5a);
+  /* il cielo in tempesta, con la luna pallida che filtra tra le nubi
+     in alto a sinistra (opposta al sole del tema chiaro) */
+  background:
+    radial-gradient(
+      circle at 18% 10%,
+      #f6f7fb 0,
+      #ccd5e5 26px,
+      rgba(204, 213, 229, 0.22) 70px,
+      rgba(204, 213, 229, 0) 190px
+    ),
+    linear-gradient(160deg, #12121c, #23233a 55%, #3a3a5a);
 
   /* ridefinendo le variabili, tutta l'app si adatta a cascata */
   --bianco: #232336;
