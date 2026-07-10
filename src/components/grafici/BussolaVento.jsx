@@ -1,3 +1,5 @@
+import { Wind } from "lucide-react";
+
 function BussolaVento({ gradi = 0, velocita }) {
   return (
     <div className="grafico-tile">
@@ -24,7 +26,9 @@ function BussolaVento({ gradi = 0, velocita }) {
           <circle cx="40" cy="40" r="3" />
         </g>
       </svg>
-      <span className="grafico-etichetta">💨 Vento · {velocita} m/s</span>
+      <span className="grafico-etichetta">
+        <Wind size={15} /> Vento · {velocita} m/s
+      </span>
     </div>
   );
 }

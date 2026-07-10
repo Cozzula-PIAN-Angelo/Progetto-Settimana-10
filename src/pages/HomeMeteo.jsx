@@ -3,6 +3,7 @@ import SearchBar from "../components/SearchBar.jsx";
 import ListaCitta from "../components/ListaCitta.jsx";
 import CartaMini from "../components/CartaMini.jsx";
 import { usePreferiti } from "../hooks/usePreferiti.js";
+import { urlIconaMeteo } from "../assets/iconeMeteo.js";
 
 function HomeMeteo() {
   const navigate = useNavigate();
@@ -11,7 +12,10 @@ function HomeMeteo() {
 
   return (
     <div>
-      <h1>Che tempo fa?</h1>
+      <h1 className="titolo-home">
+        Che tempo fa?
+        <img className="sole-titolo" src={urlIconaMeteo("01d")} alt="" />
+      </h1>
       <SearchBar
         onCerca={(citta, coordinate) =>
           navigate(

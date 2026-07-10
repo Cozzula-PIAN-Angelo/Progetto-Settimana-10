@@ -1,6 +1,7 @@
 import CartaMeteo from "../components/CartaMeteo.jsx";
 import { useParams, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Star } from "lucide-react";
 import {
   getMeteoCorrente,
   getMeteoDaCoordinate,
@@ -9,6 +10,7 @@ import {
 import Loader from "../components/Loader.jsx";
 import ErrorMessage from "../components/ErrorMessage.jsx";
 import { usePreferiti } from "../hooks/usePreferiti.js";
+import ScommessaMeteo from "../components/ScommessaMeteo.jsx";
 
 function DettagliMeteo() {
   const { preferiti, togglePreferito } = usePreferiti();
@@ -43,10 +45,19 @@ function DettagliMeteo() {
     <div>
       <CartaMeteo dati={dati} nome={nome} regione={regione} />
       <button className="btn-preferito" onClick={() => togglePreferito(nome)}>
+        <Star
+          size={16}
+          fill={preferiti.includes(nome) ? "currentColor" : "none"}
+        />
         {preferiti.includes(nome)
-          ? "★ Rimuovi dai preferiti"
-          : "☆ Aggiungi ai preferiti"}
+          ? "Rimuovi dai preferiti"
+          : "Aggiungi ai preferiti"}
       </button>
+      <ScommessaMeteo
+        lat={dati.coord.lat}
+        lon={dati.coord.lon}
+        nomeCitta={nome}
+      />
     </div>
   );
 }

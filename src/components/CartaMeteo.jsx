@@ -1,7 +1,9 @@
+import { Droplets, Cloud, Gauge, Eye, CloudRain } from "lucide-react";
 import AnelloDato from "./grafici/AnelloDato.jsx";
 import BussolaVento from "./grafici/BussolaVento.jsx";
 import BarraTemperatura from "./grafici/BarraTemperatura.jsx";
 import ArcoSole from "./grafici/ArcoSole.jsx";
+import { urlIconaMeteo } from "../assets/iconeMeteo.js";
 
 function CartaMeteo({ dati, nome, regione }) {
   return (
@@ -11,7 +13,8 @@ function CartaMeteo({ dati, nome, regione }) {
       </h1>
       {regione && <p className="regione">{regione}</p>}
       <img
-        src={`https://openweathermap.org/img/wn/${dati.weather[0].icon}@2x.png`}
+        className="icona-principale"
+        src={urlIconaMeteo(dati.weather[0].icon)}
         alt={dati.weather[0].description}
       />
       <p className="temp">{Math.round(dati.main.temp)}°C</p>
@@ -25,22 +28,30 @@ function CartaMeteo({ dati, nome, regione }) {
       <div className="griglia-grafici">
         <AnelloDato
           etichetta="Umidità"
-          icona="💧"
+          icona={<Droplets size={15} />}
           valore={dati.main.humidity}
         />
         <AnelloDato
           etichetta="Nuvolosità"
-          icona="☁️"
+          icona={<Cloud size={15} />}
           valore={dati.clouds.all}
         />
         <BussolaVento gradi={dati.wind.deg} velocita={dati.wind.speed} />
       </div>
       <ul>
-        <li>🌡️ Pressione: {dati.main.pressure} hPa</li>
-        <li>👁️ Visibilità: {dati.visibility / 1000} km</li>
+        <li>
+          <Gauge size={15} /> Pressione: {dati.main.pressure} hPa
+        </li>
+        <li>
+          <Eye size={15} /> Visibilità: {dati.visibility / 1000} km
+        </li>
       </ul>
       <ArcoSole alba={dati.sys.sunrise} tramonto={dati.sys.sunset} />
-      {dati.rain && <p>🌧️ Pioggia: {dati.rain["1h"]} mm nell'ultima ora</p>}
+      {dati.rain && (
+        <p className="pioggia">
+          <CloudRain size={15} /> Pioggia: {dati.rain["1h"]} mm nell'ultima ora
+        </p>
+      )}
     </div>
   );
 }

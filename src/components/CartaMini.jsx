@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Droplets } from "lucide-react";
 import { getMeteoCorrente } from "../api/MeteoApi.js";
+import { urlIconaMeteo } from "../assets/iconeMeteo.js";
 
 function CartaMini({ nome }) {
   const [dati, setDati] = useState(null);
@@ -17,7 +19,7 @@ function CartaMini({ nome }) {
     <Link to={`/citta/${nome}`} className="carta-mini">
       <strong>{dati.name}</strong>
       <img
-        src={`https://openweathermap.org/img/wn/${dati.weather[0].icon}@2x.png`}
+        src={urlIconaMeteo(dati.weather[0].icon)}
         alt={dati.weather[0].description}
       />
       <span className="mini-temp">{Math.round(dati.main.temp)}°C</span>
@@ -27,7 +29,7 @@ function CartaMini({ nome }) {
         role="img"
         aria-label={`Umidità ${dati.main.humidity}%`}
       >
-        <span>💧</span>
+        <Droplets size={14} />
         <div className="traccia-mini">
           <div
             className="riempimento-mini"

@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { House } from "lucide-react";
 
 function TornaHome() {
   const { pathname } = useLocation();
@@ -6,7 +7,7 @@ function TornaHome() {
 
   return (
     <Link to="/" className="torna-home">
-      🏠 Torna alla home
+      <House size={16} /> Torna alla home
     </Link>
   );
 }

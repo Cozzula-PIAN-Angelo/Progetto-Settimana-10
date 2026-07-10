@@ -1,7 +1,9 @@
 /* ===== Tasto per tornare alla home ===== */
 
 .torna-home {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 16px;
   padding: 8px 18px;
   font-size: 0.95rem;
@@ -30,6 +32,21 @@ h1,
 h2 {
   color: var(--bianco);
   letter-spacing: -0.5px;
+}
+
+/* ===== Titolo della home con il sole ===== */
+
+.titolo-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.sole-titolo {
+  width: 72px;
+  height: 72px;
+  margin: -16px 0;
 }
 
 /* ===== SearchBar ===== */
@@ -195,11 +212,27 @@ h2 {
 }
 
 .carta-meteo li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 6px 12px;
   font-size: 0.9rem;
   color: var(--blu-scuro);
   background: var(--blu-ghiaccio);
   border-radius: 8px;
+}
+
+.carta-meteo .icona-principale {
+  width: 140px;
+  height: 140px;
+  margin: -14px 0;
+}
+
+.carta-meteo .pioggia {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
 }
 
 /* ===== Griglia dei preferiti in home ===== */
@@ -237,8 +270,9 @@ h2 {
 }
 
 .carta-mini img {
-  width: 80px;
-  height: 80px;
+  width: 96px;
+  height: 96px;
+  margin: -10px 0;
 }
 
 .carta-mini .mini-temp {
@@ -305,12 +339,15 @@ h2 {
   animation-delay: 0.2s;
 }
 
-.grafico-tile svg {
+.grafico-tile > svg {
   width: 84px;
   height: 84px;
 }
 
 .grafico-etichetta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: 0.8rem;
   color: var(--testo-secondario);
 }
@@ -471,6 +508,12 @@ h2 {
   margin-top: 4px;
 }
 
+.orari-sole span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
 /* mini-barra umidità nelle card della home */
 .mini-barra {
   display: flex;
@@ -498,6 +541,183 @@ h2 {
   animation: cresci-barra 1s ease-out;
 }
 
+/* ===== Scommessa sul meteo di domani ===== */
+
+.scommessa {
+  max-width: 480px;
+  margin: 24px auto;
+  padding: 24px;
+  background: var(--bianco);
+  border-radius: 20px;
+  box-shadow: var(--ombra);
+  animation: appari-su 0.5s ease-out backwards;
+}
+
+.scommessa h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 0 4px;
+  font-size: 1.3rem;
+  color: var(--blu-scuro);
+}
+
+.scommessa .sottotitolo {
+  margin: 0 0 12px;
+  font-size: 0.9rem;
+  color: var(--testo-secondario);
+}
+
+.saldo-monete {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  margin-bottom: 14px;
+  font-weight: 700;
+  color: var(--blu-scuro);
+  background: var(--blu-ghiaccio);
+  border-radius: 999px;
+}
+
+.opzioni-scommessa {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.opzione-scommessa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 94px;
+  padding: 10px 6px;
+  font-size: 0.9rem;
+  color: var(--testo);
+  background: var(--blu-ghiaccio);
+  border: 2px solid transparent;
+  border-radius: 14px;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    border-color 0.15s;
+}
+
+.opzione-scommessa:hover {
+  transform: translateY(-3px);
+}
+
+.opzione-scommessa.selezionata {
+  border-color: var(--blu);
+  background: var(--bianco);
+}
+
+.opzione-scommessa img {
+  width: 52px;
+  height: 52px;
+  margin: -6px 0 0;
+}
+
+.opzione-scommessa .quota {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--blu);
+}
+
+.riga-puntata {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.riga-puntata input {
+  width: 70px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  text-align: center;
+  border: 2px solid var(--blu-chiaro);
+  border-radius: 999px;
+}
+
+.btn-scommetti {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--blu-scuro);
+  background: var(--giallo);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.btn-scommetti:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.btn-scommetti:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.errore-scommessa {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #b91c1c;
+}
+
+.attesa-scommessa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 0;
+  color: var(--blu-scuro);
+}
+
+.attesa-scommessa .dado {
+  animation: rimbalza-dado 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes rimbalza-dado {
+  from {
+    transform: translateY(0) rotate(-14deg);
+  }
+  to {
+    transform: translateY(-10px) rotate(14deg);
+  }
+}
+
+.esito-scommessa {
+  padding-top: 6px;
+  animation: appari-su 0.4s ease-out;
+}
+
+.esito-scommessa img {
+  width: 84px;
+  height: 84px;
+  margin: -8px 0;
+}
+
+.esito-vinto {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #15803d;
+}
+
+.esito-perso {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #b91c1c;
+}
+
 /* rispetto della preferenza per il movimento ridotto */
 @media (prefers-reduced-motion: reduce) {
   .carta-meteo,
@@ -509,7 +729,10 @@ h2 {
   .cursore-barra,
   .riempimento-sole,
   .sole,
-  .riempimento-mini {
+  .riempimento-mini,
+  .scommessa,
+  .attesa-scommessa .dado,
+  .esito-scommessa {
     animation: none;
   }
 }
@@ -517,6 +740,9 @@ h2 {
 /* ===== Bottone preferiti ===== */
 
 .btn-preferito {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   margin-top: 4px;
   padding: 10px 22px;
   font-size: 1rem;

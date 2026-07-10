@@ -1,3 +1,5 @@
+import { Sunrise, Sunset } from "lucide-react";
+
 function formattaOra(timestamp) {
   return new Date(timestamp * 1000).toLocaleTimeString("it-IT", {
     hour: "2-digit",
@@ -35,8 +37,12 @@ function ArcoSole({ alba, tramonto }) {
         <circle className="sole" cx={soleX} cy={soleY} r="5" />
       </svg>
       <div className="orari-sole">
-        <span>🌅 {formattaOra(alba)}</span>
-        <span>🌇 {formattaOra(tramonto)}</span>
+        <span>
+          <Sunrise size={15} /> {formattaOra(alba)}
+        </span>
+        <span>
+          <Sunset size={15} /> {formattaOra(tramonto)}
+        </span>
       </div>
     </div>
   );
