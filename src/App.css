@@ -444,41 +444,53 @@ h2 {
   }
 }
 
-/* arco alba-tramonto */
-.arco-sole {
+/* scena alba-tramonto: il sole sull'orizzonte */
+.sole-orizzonte {
   max-width: 280px;
   margin: 18px auto 0;
 }
 
-.arco-sole svg {
+.sole-orizzonte svg {
   width: 100%;
   display: block;
 }
 
-.traccia-sole {
-  fill: none;
+.linea-orizzonte {
   stroke: var(--blu-chiaro);
-  stroke-width: 4;
+  stroke-width: 2;
   stroke-linecap: round;
 }
 
-.riempimento-sole {
-  fill: none;
-  stroke: var(--ambra);
-  stroke-width: 4;
-  stroke-linecap: round;
-  animation: riempi-traccia 1.2s ease-out;
-}
-
-.sole {
+.sole-scena circle {
   fill: var(--ambra);
-  animation: spunta-sole 0.5s ease-out 1s backwards;
 }
 
-@keyframes spunta-sole {
+.sole-scena line {
+  stroke: var(--ambra);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.sole-scena {
+  animation: sorgi-sole 0.9s ease-out;
+}
+
+@keyframes sorgi-sole {
   from {
-    opacity: 0;
+    transform: translateY(22px);
   }
+}
+
+.luna-scena circle {
+  fill: #cbd5e1;
+}
+
+.luna-scena .cratere {
+  fill: #94a3b8;
+}
+
+.luna-scena {
+  animation: sorgi-sole 0.9s ease-out;
 }
 
 .orari-sole {
@@ -706,8 +718,8 @@ h2 {
   .grafico-tile,
   .riempimento-anello,
   .freccia-vento,
-  .riempimento-sole,
-  .sole,
+  .sole-scena,
+  .luna-scena,
   .riempimento-mini,
   .scommessa,
   .attesa-scommessa .dado,

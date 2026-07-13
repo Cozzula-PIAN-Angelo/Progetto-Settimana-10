@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import AnelloDato from "./grafici/AnelloDato.jsx";
 import BussolaVento from "./grafici/BussolaVento.jsx";
-import ArcoSole from "./grafici/ArcoSole.jsx";
+import SoleOrizzonte from "./grafici/SoleOrizzonte.jsx";
 import { urlIconaMeteo } from "../assets/iconeMeteo.js";
 
 function CartaMeteo({ dati, nome, regione }) {
@@ -56,7 +56,7 @@ function CartaMeteo({ dati, nome, regione }) {
           <Eye size={15} /> Visibilità: {dati.visibility / 1000} km
         </li>
       </ul>
-      <ArcoSole alba={dati.sys.sunrise} tramonto={dati.sys.sunset} />
+      <SoleOrizzonte alba={dati.sys.sunrise} tramonto={dati.sys.sunset} />
       {dati.rain && (
         <p className="pioggia">
           <CloudRain size={15} /> Pioggia: {dati.rain["1h"]} mm nell'ultima ora

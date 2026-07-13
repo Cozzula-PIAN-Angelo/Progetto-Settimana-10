@@ -54,12 +54,29 @@ body.tema-temporale {
   /* il cielo in tempesta, con la luna pallida che filtra tra le nubi
      in alto a sinistra (opposta al sole del tema chiaro) */
   background:
+    /* i crateri: tre macchie più scure sul disco */
+    radial-gradient(
+      circle at calc(18% - 13px) calc(10% - 8px),
+      rgba(148, 163, 190, 0.55) 0 8px,
+      rgba(148, 163, 190, 0) 9.5px
+    ),
+    radial-gradient(
+      circle at calc(18% + 11px) calc(10% + 11px),
+      rgba(148, 163, 190, 0.45) 0 6.5px,
+      rgba(148, 163, 190, 0) 8px
+    ),
+    radial-gradient(
+      circle at calc(18% + 10px) calc(10% - 14px),
+      rgba(148, 163, 190, 0.4) 0 4px,
+      rgba(148, 163, 190, 0) 5.5px
+    ),
+    /* il disco: bordo netto, ombreggiatura fredda, alone minimo */
     radial-gradient(
       circle at 18% 10%,
-      #f6f7fb 0,
-      #ccd5e5 26px,
-      rgba(204, 213, 229, 0.22) 70px,
-      rgba(204, 213, 229, 0) 190px
+      #eef1f8 0 32px,
+      #c3cee2 37px,
+      rgba(195, 206, 226, 0.18) 43px,
+      rgba(195, 206, 226, 0) 64px
     ),
     linear-gradient(160deg, #12121c, #23233a 55%, #3a3a5a);
 
